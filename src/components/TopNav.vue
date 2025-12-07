@@ -2,45 +2,30 @@
   <nav>
     <div class="logo">
       <a href="/">
-        <img src="/algonquin-pet-store.png" alt="Algonquin Pet Store Logo">
+        <img src="/bestbuy-logo.png" alt="Best Buy Logo"> 
       </a>
     </div>
-    <button class="hamburger" @click="toggleNav">
-      <span class="hamburger-icon"></span>
-    </button>
-    <ul class="nav-links" :class="{ 'nav-links--open': isNavOpen }">
-      <li><router-link to="/" @click="closeNav">Products</router-link></li>
-      <li><router-link to="/cart" @click="closeNav">Cart ({{ cartItemCount }})</router-link></li>
-    </ul>
-  </nav>
-</template>
+    ```
 
-<script>
-export default {
-  name: 'TopNav',
-  props: ['cartItemCount'],
-  data() {
-    return {
-      isNavOpen: false
-    }
-  },
-  methods: {
-    toggleNav() {
-      this.isNavOpen = !this.isNavOpen
-    },
-    closeNav() {
-      this.isNavOpen = false
-    }
-  }
-}
-</script>
+### 2. Style Changes (Color Scheme)
 
+The navigation bar's background color is currently a shade of green/dark brown (`#3c673cd7`). We should change this to **Best Buy Blue** (`#004694`) for a professional look.
+
+| Section | Original Code | Action |
+| :--- | :--- | :--- |
+| `<style scoped>` | `background-color: #3c673cd7;` | **Change to Best Buy Blue** (`#004694`). |
+| `<style scoped>` | `@media (max-width: 768px) { ... background-color: #333; ... }` | Change the mobile dropdown background to Best Buy Blue or a lighter shade for contrast, such as a slightly lighter blue or even black/white. |
+
+#### Modified Style Snippet:
+
+```css
 <style scoped>
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #3c673cd7;
+  /* UPDATED TO BEST BUY BLUE */
+  background-color: #004694; 
   color: #fff;
   padding-top: 0.5rem;
   padding-left: 1rem;
@@ -51,67 +36,11 @@ nav {
   left: 0;
   right: 0;
 }
-
-nav img {
-  width: 60px;
-  height: auto;
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.hamburger {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  margin: 0;
-  margin-top: -40px;
-}
-
-.hamburger-icon {
-  display: block;
-  width: 20px;
-  height: 2px;
-  background-color: #fff;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.hamburger-icon::before,
-.hamburger-icon::after {
-  content: '';
-  display: block;
-  width: 20px;
-  height: 2px;
-  background-color: #fff;
-  position: absolute;
-  left: 0;
-}
-
-.hamburger-icon::before {
-  top: -6px;
-}
-
-.hamburger-icon::after {
-  bottom: -6px;
-}
+/* ... other styles ... */
 
 @media (max-width: 768px) {
   .nav-links {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: #333;
-    padding: 1rem;
+    /* ... */
   }
 
   .nav-links--open {
@@ -121,7 +50,7 @@ nav img {
   .nav-links--open li {
     padding: 0.5rem 0;
   }
-
+  
   .hamburger {
     display: block;
   }
