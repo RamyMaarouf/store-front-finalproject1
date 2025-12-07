@@ -2,7 +2,7 @@
   <header>
     <div class="header-content">
       <div class="logo-title">
-        <img src="/bestbuy-logo.png" alt="Best Buy Logo" class="logo">
+        <img src="./bestbuy-logo.png" alt="Best Buy Logo" class="logo">
         <h1 class="title">Best Buy Cloud-Native Customer App</h1>
       </div>
       <nav>
